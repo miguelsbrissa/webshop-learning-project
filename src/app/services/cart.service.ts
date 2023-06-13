@@ -22,11 +22,14 @@ export class CartService {
     }
     this.cart.next({ items });
     this._snackBar.open("1 item added to cart.", "Ok", { duration: 3000 });
-    console.log(this.cart.value);
   }
   getTotal(items: Array<CartItem>): number {
     return items
       .map((item) => item.price * item.quantity)
       .reduce((prev, current) => prev + current, 0);
+  }
+  clearCart() {
+    this.cart.next({ items: [] });
+    this._snackBar.open("Cart is clear.", "Ok", { duration: 3000 });
   }
 }
