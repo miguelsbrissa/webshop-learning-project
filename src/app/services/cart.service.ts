@@ -32,4 +32,12 @@ export class CartService {
     this.cart.next({ items: [] });
     this._snackBar.open("Cart is clear.", "Ok", { duration: 3000 });
   }
+  removeFromCart(item: CartItem) {
+    const filteredItems = this.cart.value.items.filter(
+      (_item) => item.id !== item.id
+    )
+
+    this.cart.next({items: filteredItems})
+    this._snackBar.open("Item removed from the Cart.", "Ok", { duration: 3000 });
+  }
 }
