@@ -34,7 +34,7 @@ export class CartService {
   }
   removeFromCart(item: CartItem) {
     const filteredItems = this.cart.value.items.filter(
-      (_item) => item.id !== item.id
+      (_item) => _item.id !== item.id
     )
 
     this.cart.next({items: filteredItems})
